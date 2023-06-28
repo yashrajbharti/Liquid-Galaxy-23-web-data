@@ -1,0 +1,11 @@
+Model Information:
+* title:	Earth
+* source:	https://sketchfab.com/3d-models/earth-a43fbb15921649d49f6e093c2662bfbc
+* author:	mohnish.mistry (https://sketchfab.com/mohnish.mistry)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Earth" (https://sketchfab.com/3d-models/earth-a43fbb15921649d49f6e093c2662bfbc) by mohnish.mistry (https://sketchfab.com/mohnish.mistry) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

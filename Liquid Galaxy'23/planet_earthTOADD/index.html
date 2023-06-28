@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script
+    src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/v0.1.14/dist/aframe-orbit-controls-component.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+   <div id='earthcontainer' style='position:relative; display:flex; width: 100%; justify-content:center ;'>
+    <a-scene device-orientation-permission-ui='enabled: false' embedded='true' foo loading-screen='enabled:false' renderer='antialias: true;   colorManagement: true;   sortObjects: true;   physicallyCorrectLights: true;   maxCanvasWidth: 1920;   maxCanvasHeight: 1920;' style='position:absolute; height: 400px; width: 400px;  margin: 0 auto;' vr-mode-ui='enabled: false'>
+      <a-assets>
+        <a-asset-item id='earth' src='https://raw.githubusercontent.com/yashrajbharti/kml-images/main/sceneearth/scene.gltf'/>
+         <a-asset-item id='hologram' src='https://raw.githubusercontent.com/yashrajbharti/kml-images/main/scene/scene.gltf'/>
+      </a-assets>
+      <a-entity camera='fov: 80; zoom: 1;' id='camera' mouse-cursor='' orbit-controls='             enableZoom: false;                       autoRotate: true;             target: #target;             enableDamping: true;             dampingFactor: 0.125;             rotateSpeed:0.25;             minDistance:3;             maxDistance:100;             ' position='0 0 0'>
+      </a-entity>
+   <a-entity animation-mixer='loop: repeat' cursor='fuse: true; fuseTimeout: 500' gltf-model='#earth' id='target' position='0 0 -27.6' scale='0.4 0.4 0.4' the-target='true'/>
+       <!--   <a-entity animation-mixer='loop: repeat' gltf-model='#hologram' id='target' position='0 0 -7.6' scale='2.4 2.4 2.4'/>-->
+  
+    </a-scene> 
+</div>
+<button class="cybr-btn">
+  Buttons<span aria-hidden>_</span>
+  <span aria-hidden class="cybr-btn__glitch">Buttons_</span>
+</button>
+  <script>  AFRAME.registerComponent('foo', {
+    init: function() {
+     const modelList = ['earth', 'hologram']
+     const scaleList = ['0.4 0.4 0.4', '2.4 2.4 2.4']
+     const positionList = ['0 0 -27.6', '0 0 -7.6']
+
+    
+     const model = document.getElementById("target")
+     const changeButton = document.querySelector(".cybr-btn")
+    
+     let idx = 1 // Start with the 2nd model as 1st is already in the scene on page load
+     const changeModel = () => {
+    
+      model.removeAttribute("gltf-model")
+   
+     
+      // Switch to next model in the list
+      model.setAttribute("gltf-model", `#${modelList[idx]}`)
+      
+      // Change Position and Scale
+      model.setAttribute('position', `${positionList[idx]}`)
+      model.setAttribute('scale', `${scaleList[idx]}`)
+    
+      idx = (idx + 1) % modelList.length
+    }
+    changeButton.onclick = changeModel 
+  }
+}) 
+ </script>
+</body>
+
+</html>
